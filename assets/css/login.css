@@ -1,0 +1,65 @@
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: url(../images/login_bg.jpg) no-repeat center/cover;
+  position: relative;
+
+}
+
+/* logo的样式 */
+.layui-main {
+  padding: 10px 0;
+}
+
+/* 表单 */
+
+.login-reg-box {
+  width: 410px;
+  height: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+}
+
+/* 表单的头部
+ */
+.title-box {
+  height: 60px;
+  background: url(../images/login_title.png) no-repeat center;
+}
+
+.reg-box {
+  display: none;
+}
+
+.layui-form-item {
+  position: relative;
+}
+
+
+.layui-form-item .layui-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.layui-input {
+  padding-left: 30px;
+}
+
+.linkclass {
+  float: right;
+}
+
+/* #link-login {
+  justify-content: flex-end;
+} */
+.loginclass {
+  text-align: center;
+  /* width: 100px; */
+}
