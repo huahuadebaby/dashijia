@@ -53,7 +53,8 @@ body {
 }
 
 .linkclass {
-  float: right;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* #link-login {
