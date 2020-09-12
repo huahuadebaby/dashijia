@@ -36,9 +36,9 @@ $(function () {
 
 
     // })()
-    // 第三个功能
+    // 第三个功能 注册验证
     (function () {
-        $("#login-form").submit(function (e) {
+        $("#reg-form").submit(function (e) {
             var unameVal = $('#username').val();
             var usepVal = $('#usep').val();
             // 阻止默认提交行为
@@ -54,19 +54,57 @@ $(function () {
                 url: 'http://ajax.frontend.itheima.net/api/reguser',
                 success: function (res) {
                     if (res.status == 0) {
-                        console.log(res.message);
-                    } else {
-                        console.log(res.message);
+                     layui.layer.msg(res.message);
+                     $('#link-reg').click();
+                    }  
+                    else {
+                        layui.layer.msg(res.message);
+                        $('#username').val('');
+
                     }
 
                 }
 
             })
 
-
-
         })
+    })();
+
+    // 登录验证
+    (function(){
+        
+        $("#login-form").submit(function (e) {
+            var formdata =$(this).serialize()
+            // 阻止默认提交行为
+            e.preventDefault();
+            // 发送请求
+            $.ajax({
+                type:'post',
+                url:'http://ajax.frontend.itheima.net/api/login',
+                data :formdata,
+                success:function(res){
+
+                     console.log(res);
+                    // 请求成功
+                    if(res.status ===0) {
+                        // console.log(res.token);
+                        // 将token存在本地
+                        layui.layer.msg(res.message)
+                        localStorage.setItem('token',res.token)
+                        location.href='/index.html'
+
+                    }
+
+                }
+
+            })
+        })
+
+
+
     })()
+
+
 
 
 })
