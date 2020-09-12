@@ -11,6 +11,16 @@ $(function(){
               Authorization: localStorage.getItem('token') || '',
             }
           }
+          // 统一设置权限认证
+          options.complete = function (res) {
+            if (
+              res.responseJSON.status === 1 &&
+              res.responseJSON.message === '身份认证失败！'
+            ) {
+              localStorage.removeItem('token')
+              window.location.href = '/login.html'
+            }
+          }
       })
       
 
