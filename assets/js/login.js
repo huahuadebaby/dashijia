@@ -93,6 +93,9 @@ $(function () {
                         localStorage.setItem('token',res.token)
                         location.href='/index.html'
 
+                    } else {
+                        layui.layer.msg(res.message)
+
                     }
 
                 }
