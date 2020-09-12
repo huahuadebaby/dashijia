@@ -4,7 +4,7 @@ $(function(){
  $.ajax({
         url:'/my/userinfo',
         success:function(res){
-            console.log(res);
+            // console.log(res);
             // 实时更新信息
             if(res.status===0) {
                 var name = res.data.nickname||res.data.username
@@ -20,7 +20,19 @@ $(function(){
             }
             }
  
+        },
+        // 统一设置权限
+        complete:function(res) {
+             console.log(res);
+            // 身份认证失败，删除token，并返回登录页面
+            if(res.responseJSON.status===1&& res.responseJSON.message === '身份认证失败') {
+                localStorage.removeItem('token');
+                location.href='/login.html'
+            }
+
         }
+
+
     })
 
 // 点击退出，清空数据，返回登陆页面

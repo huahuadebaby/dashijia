@@ -84,7 +84,7 @@ $(function () {
                 data :formdata,
                 success:function(res){
 
-                     console.log(res);
+                    //  console.log(res);
                     // 请求成功
                     if(res.status ===0) {
                         // console.log(res.token);
