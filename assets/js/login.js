@@ -51,7 +51,7 @@ $(function () {
                     password: usepVal,
 
                 },
-                url: 'http://ajax.frontend.itheima.net/api/reguser',
+                url: '/api/reguser',
                 success: function (res) {
                     if (res.status == 0) {
                      layui.layer.msg(res.message);
@@ -80,7 +80,7 @@ $(function () {
             // 发送请求
             $.ajax({
                 type:'post',
-                url:'http://ajax.frontend.itheima.net/api/login',
+                url:'/api/login',
                 data :formdata,
                 success:function(res){
 
