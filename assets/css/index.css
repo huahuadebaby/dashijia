@@ -6,8 +6,9 @@
     margin-right: 10px;
     }
 .layui-body {
-        overflow: hidden;
-      }
+overflow: hidden;
+}
+
       
 iframe {
         height: 100%;
