@@ -13,7 +13,7 @@ $(function(){
                     $("#welcome").html('欢迎&nbsp;&nbsp;'+name)
                 // 判断用户是否自己设置用户图片 如果不为空就默认使用用户的图片,没有设置就默认设置用户名首字母大写
                 if(res.data.user_pic!==null) {
-                    $('.layui-nav-img').attr('src',res.data.user_pic),show()
+                    $('.layui-nav-img').attr('src',res.data.user_pic).show()
                     $('.text-avatar').hide();
                 } else {
                     $('.layui-nav-img').hide();

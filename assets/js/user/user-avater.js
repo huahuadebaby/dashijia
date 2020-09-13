@@ -31,4 +31,36 @@ $('.layui-flie').change(function(e){
 
 })
 
+// 点击确定的时候 点击 确定 的时候，剪裁图片，转成base64格式，提交字符串到接口
+$('.layui-btn-danger').click(function(e){
+    e.preventDefault()
+    var dataURL = $image
+      .cropper('getCroppedCanvas', { // 创建一个 Canvas 画布
+        width: 100,
+        height: 100
+      })
+      .toDataURL('image/png') ;
+    // 将 Canvas 画布上的内容，转化为 base64 格式的字符串
+    $.ajax({
+        type:'post',
+        url:"/my/update/avatar",
+        data:{
+            avatar:dataURL,
+
+        },
+        success:function(res){
+            if(res.status==0) {
+                // 如果请求成功，重新渲染头像
+               window.parent. getIdcard()
+
+
+            }
+            // console.log(res);
+
+        }
+
+    })
+    
+})
+
 })
