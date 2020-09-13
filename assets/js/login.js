@@ -87,7 +87,7 @@ $(function () {
                     //  console.log(res);
                     // 请求成功
                     if(res.status ===0) {
-                        // console.log(res.token);
+                         console.log(res);
                         // 将token存在本地
                         layui.layer.msg(res.message)
                         localStorage.setItem('token',res.token)

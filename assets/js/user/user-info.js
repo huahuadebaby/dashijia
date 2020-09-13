@@ -42,7 +42,8 @@ $('#formInfo').submit(function(e){
         // console.log(res);
         console.log(window.parent);
         // 借用父亲的方法，重新渲染页面
-        window.parent.getIdcard()
+        window.parent.getIdcard();
+        layui.layer.msg(res.message)
 
       }
 
