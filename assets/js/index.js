@@ -6,7 +6,7 @@ $(function(){
         $.ajax({
             url:'/my/userinfo',
             success:function(res){
-                 console.log(res);
+                //  console.log(res);
                 // 实时更新信息
                 if(res.status===0) {
                     var name = res.data.nickname||res.data.username

@@ -8,31 +8,24 @@
     <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
     <!-- 加载自己的css -->
     <link rel="stylesheet" href="/assets/css/art/art_list.css" />
- 
-   
 </head>
   <body>
     <div class="layui-card">
       <div class="layui-card-header">文章列表</div>
       <div class="layui-card-body">
         <!-- 内容区一  搜索区 -->
-        <form class="layui-form">
+        <form class="layui-form" id= 'layui-cate'>
           <div class="layui-form-item">
             <div class="layui-inline">
-              <div class="layui-input-inline" style="width: 100px">
-                <select name="city" lay-verify="">
-                  <option value="">所有分类</option>
-                  <option value="010">北京</option>
-                  <option value="021">上海</option>
-                  <option value="0571">杭州</option>
+              <div class="layui-input-inline" style="width: 100px ">
+                <select name="cate-id"  id='cate-sou'>
                 </select>
               </div>
-              <div class="layui-input-inline" style="width: 100px">
-                <select name="city" lay-verify="">
+              <div class="layui-input-inline" style="width: 100px ">
+                <select name="state">
                   <option value="">所有状态</option>
-                  <option value="010">北京</option>
-                  <option value="021">上海</option>
-                  <option value="0571">杭州</option>
+                  <option value="已发布">已发布</option>
+                  <option value="草稿">草稿</option>
                 </select>
               </div>
             </div>
@@ -80,11 +73,96 @@
  <!-- 加载template-web.js -->
  <script src="/assets/lib/template-web.js"></script>
  <!-- 加载layui.all.js -->
- <script src="/assets/lib/layui/"></script>
+ <script src="/assets/lib/layui/layui.all.js"></script>
  <script src="/assets/js/ready.js"></script>
  <!-- 加载自己的js -->
-
  <script src='/assets/js/art/art_list.js'></script>
+ <!-- 编辑提示框的模板引擎 -->
+ <script type="text/html" id='tpl-init'>
+  <form id="editForm" class="layui-form" lay-filter="editForm">
+    <input type="hidden" name="Id" />
+    <!-- 第一行 分类名称 -->
+    <div class="layui-form-item">
+      <label class="layui-form-label">分类名称</label>
+      <div class="layui-input-block">
+        <input
+          type="text"
+          name="name"
+          required
+          lay-verify="required"
+          placeholder="请输入分类名称"
+          autocomplete="off"
+          class="layui-input"
+        />
+      </div>
+    </div>
+    <!-- 第二行 分类别名 -->
+    <div class="layui-form-item">
+      <label class="layui-form-label">分类别名</label>
+      <div class="layui-input-block">
+        <input
+          type="text"
+          name="alias"
+          required
+          lay-verify="required"
+          placeholder="请输入分类别名"
+          autocomplete="off"
+          class="layui-input"
+        />
+      </div>
+    </div>
+    <!-- 第三行 按钮 -->
+    <div class="layui-form-item">
+      <div class="layui-input-block">
+        <button class="layui-btn" lay-submit lay-filter="formDemo">
+          确认修改
+        </button>
+      </div>
+    </div>
+  </form>
 
+
+
+ </script>
+  <!-- 列表模板引擎 -->
+ <script type="text/html" id='tpl-table'>
+  {{each data v i}}
+  <tr>
+    <td>{{v.Id}}</td>
+    <td>{{v.title}}</td>
+    <td>{{v.cate_name}}</td>
+    <td>{{v.pub_date}}</td>
+    <td>{{v.state}}</td>
+    <td>
+      <button
+        data-id="{{v.Id}}"
+        type="button"
+        class="layui-btn layui-btn-xs edit"
+        id='layui-edit'
+      >
+      编辑
+      </button>
+      <button
+        data-id="{{v.Id}}"
+        type="button"
+        class="layui-btn layui-btn-danger layui-btn-xs delete"
+        id='layui-delete'
+      >
+        删除
+      </button>
+    </td>
+  </tr>
+  {{/each}}
+
+
+
+ </script>
+ <!-- 下拉菜单模板引擎 -->
+ <script type="text/html" id='tpl-cate'>
+  <option value="">所有分类</option>
+  {{each data v  i}}
+    <option value="{{v.Id}}">{{v.name}}</option>
+{{/each}}
+ </script>
   </body>
 </html>

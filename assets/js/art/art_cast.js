@@ -71,7 +71,7 @@ $('tbody').on('click','#btn-edit',function(e){
 
 })
 // 点击确认编辑框的确认修改按钮，重新渲染页面
-$('body').on('submit','#editForm',function(e){
+$('body').on('submit'  ,'#editForm',function(e){
     e.preventDefault();
     $.ajax({
         type:'post',

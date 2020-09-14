@@ -1,8 +1,7 @@
 $(function(){
      // 1.1 获取裁剪区域的 DOM 元素
-  var $image = $('#image')
-  
-  // 1.2 配置选项
+     var $image = $('#image')
+       // 1.2 配置选项
   const options = {
     // 纵横比
     aspectRatio: 1,
@@ -10,7 +9,7 @@ $(function(){
     preview: '.img-preview'
   }
 
-  // 1.3 创建裁剪区域
+                                                                                                                                     
   $image.cropper(options)
 //   点击按钮提交
 $('#layui-let').click(function(){
@@ -19,6 +18,7 @@ $('#layui-let').click(function(){
 // 给提交表单注册change事件
 // e.target绑定当前事件的元素
 $('.layui-flie').change(function(e){
+  console.log(e.target.files);
     // 拿到用户选择的文件
     var file = e.target.files[0]
     // 根据选择的文件，创建一个对应的 URL 地址：
