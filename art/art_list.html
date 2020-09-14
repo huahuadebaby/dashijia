@@ -69,6 +69,8 @@
     </div>
  <!-- 加载jquery.js -->
  <script src='/assets/lib/jquery.js'></script>
+ <!-- 修改时间js -->
+ <script src="/assets/lib/moment.js"></script>
 
  <!-- 加载template-web.js -->
  <script src="/assets/lib/template-web.js"></script>
@@ -131,7 +133,7 @@
     <td>{{v.Id}}</td>
     <td>{{v.title}}</td>
     <td>{{v.cate_name}}</td>
-    <td>{{v.pub_date}}</td>
+    <td>{{v.pub_date|formatDate}}</td>
     <td>{{v.state}}</td>
     <td>
       <button

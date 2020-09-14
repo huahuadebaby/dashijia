@@ -6,7 +6,7 @@ $(function(){
         type:'get',
         url:'/my/article/cates',
         success:function(res){
-            //   console.log(res);
+           console.log(res);
             var strHtml =template('tpl-table',res)
             $('tbody').html(strHtml)
 

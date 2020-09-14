@@ -5,6 +5,15 @@ $(function(){
         cate_id:$('[name=cate_id]').val(),
         state:$('[name=state]').val(),
     }
+
+    // 修改列表的时间
+    template.defaults.imports.formatDate = function (olddate) {
+        // console.log(olddate) // 2020-09-13 01:45:39.448
+        // 处理逻辑
+        // console.log(moment)
+        var timenew = moment(olddate).format('MMMM Do YYYY, h:mm:ss a')
+        return timenew
+      }
     // 进来发送请求,渲染列表的数据
     initTable() 
     function initTable(){
