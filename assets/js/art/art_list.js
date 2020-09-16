@@ -124,37 +124,42 @@ $('tbody').on('click','#layui-delete',function(e){
 
 
 // 点击编辑按钮，编辑对应的文章
-$('tbody').on('click','#layui-edit',function(e){
-    e.preventDefault()
-    var editStr =$("#tpl-init").text();
-    indexEdit= layui.layer.open({
-        type: 1,
-        area: ['500px', '250px'],
-        title: '添加文章分类',
-        content: editStr,
-      })
-      var id =$(this).attr('data-id');
-      $.ajax({
-          url:`/my/article/${id}`,
-          success:function(res){
-              console.log(res);
-             if(res.status===0) {
-                layui.form.val('editForm', res.data)
-             }
-          }
-      })
+ // 6. 监听编辑按钮的点击事件
+ $('body').on('click', '#layui-edit', function() {
+    location.href = '/art/art_pub.html?id=' + $(this).attr('data-id')
+  })
+// $('tbody').on('click','#layui-edit',function(e){
+//     e.preventDefault()
+//     var editStr =$("#tpl-init").text();
+//     indexEdit= layui.layer.open({
+//         type: 1,
+//         area: ['500px', '250px'],
+//         title: '添加文章分类',
+//         content: editStr,
+//       })
+//       var id =$(this).attr('data-id');
+//       $.ajax({
+//           url:`/my/article/${id}`,
+//           success:function(res){
+//               console.log(res);
+//              if(res.status===0) {
+//                 layui.form.val('editForm', res.data)
+//              }
+//           }
+//       })
 
-})
-})
 
-// 点击确定按钮，重新渲染页面
-$('body').on('submit','#editForm',function(e){
-    e.preventDefault();
-    $.ajax({
-        type:'post',
-        url:'/my/article/edit',
-        data:$(this).se
-    })
+// })
+// })
+
+// // 点击确定按钮，重新渲染页面
+// $('body').on('submit','#editForm',function(e){
+//     e.preventDefault();
+//     $.ajax({
+//         type:'post',
+//         url:'/my/article/edit',
+//         data:$(this).se
+//     })
     
 
 })
