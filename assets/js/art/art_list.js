@@ -137,7 +137,7 @@ $('tbody').on('click','#layui-edit',function(e){
       $.ajax({
           url:`/my/article/${id}`,
           success:function(res){
-            //   console.log(res);
+              console.log(res);
              if(res.status===0) {
                 layui.form.val('editForm', res.data)
              }

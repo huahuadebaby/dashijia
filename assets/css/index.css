@@ -1,4 +1,4 @@
-.iconfont {
+ .iconfont {
     margin-right: 10px;
     }
 .layui-icon-app {
@@ -18,7 +18,7 @@ iframe {
     text-align: center;
       }
       /*图片头像*/
-.userinfo {
+      .userinfo {
   height: 60px;
   line-height: 60px;
   text-align: center;
@@ -45,5 +45,5 @@ iframe {
   font-size: 20px;
   position: relative;
   top: 4px;
-}
+} 
       

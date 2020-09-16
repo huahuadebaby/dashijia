@@ -10,13 +10,11 @@ $(function(){
             options.headers = {
               Authorization: localStorage.getItem('token') || '',
             }
-          }
+          };
           // 统一设置权限认证
           options.complete = function (res) {
-            //  console.log(res);
-            if (
-               res.responseJSON.status === 1 &&
-               res.responseJSON.message === '身份认证失败！'
+              console.log(res);
+            if (res.responseJSON.status === 1 && res.responseJSON.message === '获取文章列表失败！'
             ) {
               localStorage.removeItem('token')
               window.location.href = '/login.html'

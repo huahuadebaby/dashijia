@@ -51,9 +51,49 @@ $(function(){
     e.preventDefault()
     var fd = new FormData($(this)[0])
     fd.append('state', state)
-    // fd.forEach(function (v, k) {
-    //   console.log(v, k)
-    // })
+    $image
+    .cropper('getCroppedCanvas', {
+      // 创建一个 Canvas 画布
+      width: 400,
+      height: 280,
+    })
+    .toBlob(function (blob) {
+      // 将 Canvas 画布上的内容，转化为文件对象
+      // 得到文件对象后，进行后续的操作
+      fd.append('cover_img', blob)
+      $.ajax({
+        url: `/my/article/add`,
+        data: fd,
+        method: 'POST',
+        // 使用formData时需要设置的
+        contentType: false,
+        processData: false,
+        success: function (res) {
+          console.log(res)
+          if (res.status === 0) {
+            window.location.href = '/art/art_list.html'
+          }
+        },
+         
+      })
+    })
+    
+      
+  
+// 发送请求 
+// $.ajax({
+//   method: 'POST',
+//   url:'/my/article/add',
+//   data:fd,
+//   // formdata必须带的两个属性
+//   contentType: false,
+//   processData: false,
+//   success:function(res){
+//     console.log(res);
+//   }
+
+// })
+
   })
 
    
